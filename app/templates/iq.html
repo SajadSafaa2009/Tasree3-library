@@ -8,11 +8,113 @@
 </head>
 <body>
     <main>
-        <a href="{{ tips[0].link }}?single" 
-        target="_blank" 
-        style="font-size: 5rem; color: aliceblue; text-decoration: none; display: inline-block;">
-            {{ tips[0].text }}
-        </a>
+        <div class="upper-div">
+            <div class="upper-div-title">
+                <h1 >الذكاء</h1>
+            </div>
+        </div>
+        <div class="middle-navbar-div">
+            <button onclick="SetInfoType('sources')" id="sources-select-button">المصادر</button>
+            <button onclick="SetInfoType('tips')" id="tips-select-button">النصائح</button>
+            <button onclick="SetInfoType('videos')" id="videos-select-button">المحاضرات</button>
+        </div>
+        <div class="lower-div">
+            <div></div>
+            <div class="content-encapsule-div" id="sources-div">
+                {% for source in sources %}
+                    <div class="source-div" onclick="window.location.href='{{source.link}}'">
+                        <div class="source-img-div">
+                            <div class="source-img-capsule">
+                                <img src="static/book-icon-img.png" alt="" style="height: 60%;aspect-ratio: 1;filter: brightness(0.7) sepia(1) hue-rotate(110deg) saturate(600%); ">
+                            </div>
+                        </div>
+                        <div class="source-info-div">
+                            <h1>{{source.text}}</h1>
+                            <p>{{source.description}}</p>
+                        </div>
+                    </div>
+                {% endfor%}
+            </div>
+            <div class="content-encapsule-div" id="tips-div">
+                {% for tip in tips %}
+                    <div class="tip-div" disabled-onclick="window.location.href='{{tip.link}}'">
+                        <div class="tip-title-div">
+                            <h2 style="font-size: clamp(8px, 1vw + 1.5vh, 40px);">{{tip.title}}</h2>
+                            <h2>{{tip.author}}</h2>
+                        </div>
+                        <div class="tip-text-div">
+                            <p>{{tip.text}}</p>
+                        </div>
+                    </div>
+                {% endfor%}
+            </div>
+            <div class="content-encapsule-div" id="videos-div">
+                {% for video in videos %}
+                    <div class="source-div" onclick="window.location.href='{{video.link}}'">
+                        <div class="source-img-div">
+                            <div class="source-img-capsule">
+                                <img src="static/book-icon-img.png" alt="" style="height: 60%;aspect-ratio: 1;filter: brightness(0.7) sepia(1) hue-rotate(110deg) saturate(600%); ">
+                            </div>
+                        </div>
+                        <div class="source-info-div">
+                            <h1>{{video.text}}</h1>
+                            <p>{{video.description}}</p>
+                        </div>
+                    </div>
+                {% endfor%}
+            </div>
+            <div class="lower-shadow"></div>
+        </div>
     </main>
 </body>
+<script>
+    let info_type = "tips";
+
+    function RenderContent(){
+        const sources_div = document.getElementById("sources-div");
+        const tips_div = document.getElementById("tips-div");
+        const videos_div = document.getElementById("videos-div");
+        if(info_type == "sources"){
+            sources_div.style.display = "flex";
+            tips_div.style.display = "none";
+            videos_div.style.display = "none";
+        }
+        else if(info_type == "tips"){
+            sources_div.style.display = "none";
+            tips_div.style.display = "flex";
+            videos_div.style.display = "none";
+        }
+        else if(info_type == "videos"){
+            sources_div.style.display = "none";
+            tips_div.style.display = "none";
+            videos_div.style.display = "flex";
+        }
+    }
+
+    function SetInfoType(type){
+        info_type = type;
+        const sources_div = document.getElementById("sources-select-button");
+        const tips_div = document.getElementById("tips-select-button");
+        const videos_div = document.getElementById("videos-select-button");
+        if(info_type == "sources"){
+            sources_div.classList.add("selected-info-type");
+            tips_div.classList.remove("selected-info-type");
+            videos_div.classList.remove("selected-info-type");
+        }
+        else if(info_type == "tips"){
+            sources_div.classList.remove("selected-info-type");
+            tips_div.classList.add("selected-info-type");
+            videos_div.classList.remove("selected-info-type");
+        }
+        else if(info_type == "videos"){
+            sources_div.classList.remove("selected-info-type");
+            tips_div.classList.remove("selected-info-type");
+            videos_div.classList.add("selected-info-type");
+        }
+              
+        RenderContent();
+    }
+    
+    SetInfoType("tips");
+</script>
 </html>

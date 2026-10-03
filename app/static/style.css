@@ -92,3 +92,229 @@ main {
     border-radius: 30px;
     box-shadow: 0px 5px 4px 5px rgba(3, 3, 3, 0.149);
 }
+.form-card{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 30px;
+    height: 50%;
+    width: 80%;
+    gap: 5px;
+    background: linear-gradient(to right, var(--bg-accent) , var(--bg-accent));;
+    color: var(--text);
+    font-size: 2rem;
+}   
+#source-add-form{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    align-items:center;
+    justify-content: center;
+    display: flex;
+}
+.form-group{
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: rtl;
+    
+}
+.form-button-option-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 100%;
+}
+.form-button-option-group button{
+    height: 70%;
+    width: 30%;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    font-size: 2rem;
+}
+.selected-button{
+    background: var(--info) !important;
+}
+.form-group input[type="text"]{
+    height: 70%;
+    width: 80%;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    background: var(--bg-light);
+    color: var(--text);
+    font-size: 2rem;
+    padding-right: 10px;
+}
+/* the core stuff for the iq and subjects pages*/
+.upper-div{
+    display: flex;
+    height: 20vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: var(--text);
+}
+.middle-navbar-div{
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    border-top: 3px solid var(--border-muted);
+    border-bottom: 3px solid var(--border-muted);
+    gap: 0.1%;
+}
+.middle-navbar-div button{
+    display: flex;
+    height: 100%;
+    width: 33.3%;
+    
+    border: none;
+    background: var(--bg-light);
+    font-size: 3rem;
+    color: var(--text);
+    justify-content: center;
+    align-items: center;
+}
+.lower-div{
+    display: flex;
+    height: 70vh;
+    width: 100%;
+
+}
+.content-encapsule-div{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: scroll !important;
+    padding-top: 1vh;
+}
+.source-div{
+    display: flex;
+    height: 12vh;
+    width: 95%;
+    margin-bottom: 1vh;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: start;
+    padding: 10px;
+    font-size: 2rem;
+    color: var(--text);
+    border: 1px solid var(--border);
+    direction: rtl;
+    gap : 15px;
+    background: linear-gradient(to right, var(--bg-light) , var(--bg-light2));;
+}
+.source-img-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px !important;
+    height: 100%;
+}
+.source-img-capsule{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px !important;
+    height: 70%;
+    border-radius: 30px;
+    background-color: var(--success);
+}
+.source-info-div{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 75% ;
+    height: 100%;
+    overflow: hidden;
+    gap: 5px;
+}
+.source-info-div h1{
+    font-size: clamp(8px, 1vw + 1.5vh, 48px);
+    margin: 0;
+    margin-top: 15px;
+    padding: 0;
+    height: 30%;
+}
+.source-info-div p{
+    font-size: clamp(8px, 1vw + 1.5vh, 32px);
+    margin: 0;
+    padding: 0;
+    height: 70%;
+}
+.source-info-div h1 , .source-info-div p{
+    text-align: right;
+    overflow: hidden;
+}
+.selected-info-type{
+    background: linear-gradient(to top, var(--bg-light) , var(--bg-light2)) !important;
+}
+/*######################*/
+.tip-div{
+    display: flex;
+    flex: 0 0 auto;
+    width: 95%;
+    min-height: 12vh;
+    height: auto;
+    margin-bottom: 1vh;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    padding: 14px;
+    color: var(--text);
+    border: 1px solid var(--border);
+    direction: rtl;
+    gap: 10px;
+    background: linear-gradient(to right, var(--bg-light), var(--bg-light2));
+    box-sizing: border-box;
+}
+.tip-title-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 90%;
+    height: auto;
+    min-height: 3vh;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.tip-title-div h2{
+    font-size: clamp(8px, 1vw + 1.5vh, 32px);
+    margin: 0;
+    padding: 0;
+    height: 70%;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.tip-text-div{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    font-size: 2.5rem;
+}
+.lower-shadow{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    background: linear-gradient(to top, var(--bg-dark) , transparent);
+}

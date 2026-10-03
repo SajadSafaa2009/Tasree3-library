@@ -8,7 +8,70 @@
 </head>
 <body>
     <main>
-        
+        <form id="source-add-form" action="{{ url_for('routes.create_source') }}" method="POST">
+            <div class="form-card general-div">
+                <div class="form-title">
+                    <h1 style="font-size: 3rem;">اضافة مصدر</h1>
+                </div>
+
+                <div class="form-group">
+                    <p>لغة الدراسة :</p>
+                    <div class="form-button-option-group">
+                        <button type="button" onclick="SetStudyType(true)" id="arabic-option-button">عربي</button>
+                        <button type="button" onclick="SetStudyType(false)"id="english-option-button">انكليزي</button>
+                    </div>
+                    <input type="text" name="study_type" id="form-study-type-input" hidden>
+                </div>
+                
+                <div class="form-group">
+                    <p>نوع الدراسة :</p>
+                    <div class="form-button-option-group">
+                        <button type="button" onclick="SetGrade(true)" id="5th-option-button">خامس علمي</button>
+                        <button type="button" onclick="SetGrade(false)"id="2nd-option-button">ثاني متوسط</button>
+                    </div>
+                    <input type="text" name="grade" id="form-grade-input" hidden>
+                </div>
+                
+                <div class="form-group">
+                    <p>الرابط:</p>
+                    <input type="text" name="link" placeholder="ادخل الرابط هنا" required>
+                </div>
+                
+                <input type="text" name="origin" hidden value = "iq">
+                
+                <div class="form-main-button-group">
+                    <button style="width: 100%;height: 100%;" type="submit" class="form-main-button">اضافة</button>
+                </div>
+            </div>
+        </form>
     </main>
 </body>
+<script>
+    function SetStudyType(value){
+        const study_type = document.getElementById("form-study-type-input");
+        const arabic_button = document.getElementById("arabic-option-button");
+        const english_button = document.getElementById("english-option-button");
+        study_type.value = value;
+        if(value){
+            arabic_button.classList.add("selected-button");
+            english_button.classList.remove("selected-button");
+        } else {
+            english_button.classList.add("selected-button");
+            arabic_button.classList.remove("selected-button");
+        }
+    }
+    function SetGrade(value){
+        const grade = document.getElementById("form-grade-input");
+        grade.value = value;
+        if(value){
+            document.getElementById("5th-option-button").classList.add("selected-button");
+            document.getElementById("2nd-option-button").classList.remove("selected-button");
+        } else {
+            document.getElementById("2nd-option-button").classList.add("selected-button");
+            document.getElementById("5th-option-button").classList.remove("selected-button");
+        }
+    }
+    SetStudyType(true);
+    SetGrade(true);
+</script>
 </html>
