@@ -12,21 +12,34 @@
         <div class="title-div">
             <h1>مرحبا بك في مكتبة تسريع</h1>
         </div>
-        <div class="login-buttons-div">
-            <div class="button-div general-div">
-                <h2>الصف</h2>
-                <div class="option-button-div">
-                    <button>خامس علمي</button>
-                    <button>ثاني متوسط</button>
+        <form action="{{ url_for('routes.set_cookie')}}" method="get">
+            <div class="login-buttons-div">
+                <div class="button-div general-div">
+                    <h2>الصف</h2>
+                    <div class="option-button-div">
+                        <button onclick="set_grade('1')" type="button">خامس علمي</button>
+                        <input type="text" name="grade" hidden id="grade-input">
+                        <button onclick="set_grade('0')" type="button" >ثاني متوسط</button>
+                    </div>
+                    <h2>نوع الدراسة</h2>
+                    <div class="option-button-div">
+                        <button onclick="set_study_type('1')" type="button">عربي</button>
+                        <input type="text" name="study_type" hidden id="study-type-input">
+                        <button onclick="set_study_type('0')" type="button">انكليزي</button>
+                    </div>
+                    <button type="submit" class="login-proceed-button" >موافق</button>
                 </div>
-                <h2>نوع الدراسة</h2>
-                <div class="option-button-div">
-                    <button>عربي</button>
-                    <button>انكليزي</button>
-                </div>
-                <button class="login-proceed-button" onclick="window.location.href='/home'">موافق</button>
             </div>
-        </div>
+        </form>
     </main>
 </body>
+<script>
+    function set_grade(grade){
+        document.getElementById("grade-input").value = grade;
+    }
+    
+    function set_study_type(study_type){
+        document.getElementById("study-type-input").value = study_type;
+    }
+</script>
 </html>
