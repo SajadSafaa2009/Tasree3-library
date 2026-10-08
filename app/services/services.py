@@ -24,3 +24,32 @@ def add_source(study_type, grade, origin, text, author, link, significance, desc
     )
     db.session.add(new_source)
     db.session.commit()
+
+def add_video(study_type, grade, origin, text, author, link, significance, description):
+    new_video = Source(
+        study_type=study_type,
+        grade=grade,
+        origin=origin,
+        text=text,
+        author=author,
+        link=link,
+        significance=significance,
+        description=description,
+        video=True
+    )
+    db.session.add(new_video)
+    db.session.commit()
+
+def add_tip(study_type, grade, origin, title, author, significance, text):
+    new_tip = Tip(
+        study_type=study_type,
+        grade=grade,
+        origin=origin,
+        title=title,
+        text=text,
+        author=author,
+        significance=significance,
+
+    )
+    db.session.add(new_tip)
+    db.session.commit()

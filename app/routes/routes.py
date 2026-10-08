@@ -7,7 +7,7 @@ from flask import (
     request,
     make_response,
 )
-from app.services.services import get_sources, get_tips, get_videos
+from app.services.services import add_tip, get_sources, get_tips, get_videos
 
 routes = Blueprint("routes", __name__)
 
@@ -106,6 +106,18 @@ def news():
 def add():
     return render_template("add.html")
 
+@routes.route("/add_source")
+def add_source():
+    return render_template("add source.html")
+
+@routes.route("/add_advice")
+def add_advice():
+    return render_template("add tip.html")
+
+@routes.route("/add_video")
+def add_video():
+    return render_template("add video.html")
+
 
 @routes.route("/source/create", methods=["POST"])
 def create_source():
@@ -121,6 +133,40 @@ def create_source():
     from app.services.services import add_source
 
     add_source(study_type, grade, origin, text, author, link, significance, description)
+
+    return redirect(url_for("routes.add"))
+
+@routes.route("/video/create", methods=["POST"])
+def create_video():
+    study_type = request.form.get("study_type") == "true"
+    grade = request.form.get("grade") == "true"
+    origin = request.form.get("origin")
+    text = request.form.get("text")
+    author = request.form.get("author")
+    link = request.form.get("link")
+    significance = int(request.form.get("significance", 1))
+    description = request.form.get("description")
+
+    from app.services.services import add_video
+
+    add_video(study_type, grade, origin, text, author, link, significance, description)
+
+    return redirect(url_for("routes.add"))
+
+
+@routes.route("/tip/create", methods=["POST"])
+def create_tip():
+    study_type = request.form.get("study_type") == "true"
+    grade = request.form.get("grade") == "true"
+    origin = request.form.get("origin")
+    text = request.form.get("text")
+    author = request.form.get("author")
+    significance = int(request.form.get("significance", 1))
+    title = request.form.get("title")
+
+    from app.services.services import add_video
+
+    add_tip(study_type, grade, origin, title, author, significance, text)
 
     return redirect(url_for("routes.add"))
 

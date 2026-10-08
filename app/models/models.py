@@ -14,7 +14,6 @@ class Source(db.Model):
     link = db.Column(db.String(2048), nullable=False)
 
     significance = db.Column(db.Integer, default=1)
-    starred = db.Column(db.Boolean, nullable=False ,default=False)
     description = db.Column(db.Text)
 
 
@@ -27,9 +26,7 @@ class Tip(db.Model):
 
     text = db.Column(db.Text)
     author = db.Column(db.String(2048))
-    link = db.Column(db.String(2048), nullable=False)
 
     significance = db.Column(db.Integer, nullable=False, default=1)
-    starred = db.Column(db.Boolean, nullable=False ,default=False)
     title = db.Column(db.Text, nullable=False)
 

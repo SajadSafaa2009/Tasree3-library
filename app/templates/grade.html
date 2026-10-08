@@ -8,13 +8,18 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <main>
-        <div class="title-div">
-            <h1>مرحبا بك في مكتبة تسريع</h1>
+    <main >
+        <img src="static/abstract waves.png" class="background-image"  alt="">
+        
+        <div class="intro-title-div ">
+            <img src="static/lib_logo2.png" class="fade-in first" alt="">
+            <h1 class="fade-in second">مرحبا بك في مكتبة سرع</h1>
+            <p class="fade-in second">المكتبة الرقمية لجميع المصادر و المراجع لطلبة التسرييع</p>
+
         </div>
         <form action="{{ url_for('routes.set_cookie')}}" method="get">
             <div class="login-buttons-div">
-                <div class="button-div general-div">
+            <div class="button-div general-div fade-in third" >
                     <h2>الصف</h2>
                     <div class="option-button-div">
                         <button onclick="set_grade('1')" type="button">خامس علمي</button>
@@ -36,10 +41,31 @@
 <script>
     function set_grade(grade){
         document.getElementById("grade-input").value = grade;
+        b1 = document.querySelectorAll(".option-button-div button")[0];
+        b2 = document.querySelectorAll(".option-button-div button")[1];
+
+        if(grade == '1'){
+            b1.style.backgroundColor = "var(--primary)";
+            b2.style.backgroundColor = "var(--bg-light)";
+        }else{
+            b2.style.backgroundColor = "var(--primary)";
+            b1.style.backgroundColor = "var(--bg-light)";
+        }
     }
     
     function set_study_type(study_type){
         document.getElementById("study-type-input").value = study_type;
+        b1 = document.querySelectorAll(".option-button-div button")[2];
+        b2 = document.querySelectorAll(".option-button-div button")[3];
+        if(study_type == '1'){
+            b1.style.backgroundColor = "var(--primary)";
+            b2.style.backgroundColor = "var(--bg-light)";
+        }else{
+            b2.style.backgroundColor = "var(--primary)";
+            b1.style.backgroundColor = "var(--bg-light)";
+        }
     }
+    set_grade('1');
+    set_study_type('1');
 </script>
 </html>

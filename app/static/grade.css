@@ -2,17 +2,18 @@
 .login-buttons-div{
     display: flex;
     width: 100%;
-    height: 40%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     font-size: clamp(8px, 1vw + 1.5vh, 48px);
     border: none;
-    
+    max-width: 1300px;
+    margin: 0 auto;
 }
 .login-buttons-div .button-div{
     border: 1px solid var(--border);
     display: flex;
-    height: 70%;
+    height: 80%;
     width: 90%;
     border-radius: 30px;
     flex-direction: column;
@@ -20,12 +21,14 @@
     justify-content: center;
     font-size: clamp(8px, 1vw + 1.5vh, 48px);
     color: white;
-    background: var(--bg)
+    background: hsla(189, 30%, 14%, 0.486);
+    border: 2px solid var(--bg-light);
+    backdrop-filter: blur(20px) !important;
 }
 .login-buttons-div .button-div .option-button-div{
     display: flex;
-    height: 15%;
-    width: 50%;
+    height: 12% ;
+    width: 70%;
     gap: 0;
 }
 .login-buttons-div .button-div .option-button-div button{
@@ -39,15 +42,19 @@
     margin: 0;
     padding: 0;
     border: none;
+    box-shadow: 0px 2px 2px 3px var(--bg-dark);
+    transition: background-color 0.2s ease;
 }
 .login-buttons-div .button-div .option-button-div button:first-child{
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+    border-right: none !important;
     background-color: var(--bg-light);
 }
 .login-buttons-div .button-div .option-button-div button:last-child{
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
+    border-left: none !important;
     background-color: var(--bg-light);
 }
 .login-proceed-button{
@@ -64,5 +71,92 @@
     padding: 0;
     border: none;
     border-radius: 30px;
-    background-color: var(--bg-light);
+    background-color: var(--secondary);
+    box-shadow: 0px 2px 2px 3px var(--bg-dark);
+}
+
+/*############################################*/
+.intro-title-div{
+    display: flex;
+    width: 100%;
+    height: 60%;
+    color: white;
+    justify-content: start;
+    align-items: center;
+    padding-top: 3vh;
+    font-size: clamp(8px, 1vw + 1.5vh, 48px);
+    border: none;
+    flex-direction: column;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.intro-title-div img{
+    aspect-ratio: 1/1;
+    width: 70%;
+    
+}
+.intro-title-div h1{
+    font-size: clamp(3rem, 5vw + 2vh, 8rem);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        90deg,
+        var(--accent),
+        var(--primary)
+    );
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.intro-title-div p{
+    font-size: clamp(2rem, 1.7vw + 1vh, 3.5rem);
+    color: var(--primary);
+}
+main form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 0.6s ease forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.first {
+    animation-delay: 0.1s;
+}
+
+.second {
+    animation-delay: 0.7s;
+}
+
+.third {
+    animation-delay: 1.4s;
+}
+.background-image{
+    width: 110vw;
+    position: absolute;
+    aspect-ratio: 1/1;
+    top: 32vh;
+    left: 0;
+    rotate: 10deg;
+}
+main{
+    position: relative;
 }

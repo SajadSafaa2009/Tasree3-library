@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <main>
+        <form id="source-add-form" action="{{ url_for('routes.create_tip') }}" method="POST">
+            <div class="form-card general-div">
+                <div class="form-title">
+                    <h1 style="font-size: 3rem;">اضافة نصيحة</h1>
+                </div>
+
+                <div class="form-group">
+                    <p>لغة الدراسة :</p>
+                    <div class="form-button-option-group">
+                        <button type="button" onclick="SetStudyType(true)" id="arabic-option-button">عربي</button>
+                        <button type="button" onclick="SetStudyType(false)"id="english-option-button">انكليزي</button>
+                    </div>
+                    <input type="text" name="study_type" id="form-study-type-input" hidden>
+                </div>
+                
+                <div class="form-group">
+                    <p>نوع الدراسة :</p>
+                    <div class="form-button-option-group">
+                        <button type="button" onclick="SetGrade(true)" id="5th-option-button">خامس علمي</button>
+                        <button type="button" onclick="SetGrade(false)"id="2nd-option-button">ثاني متوسط</button>
+                    </div>
+                    <input type="text" name="grade" id="form-grade-input" hidden>
+                </div>
+                
+                <div class="form-group">
+                    <p>العنوان:</p>
+                    <input type="text" name="title" placeholder="ادخل العنوان هنا" required>
+                </div>
+                
+                <div class="form-group">
+                    <p>الكاتب:</p>
+                    <input type="text" name="author" placeholder="ادخل اسم الكاتب هنا" required>
+                </div>
+
+                
+                <div class="form-group">
+                    <p>نوع المصدر:</p>
+                    <select name="origin" required>
+                        <option value="iq">ذكاء</option>
+                        <option value="math">الرياضيات</option>
+                        <option value="biology">الاحياء</option>
+                        <option value="chemistry">الكيمياء</option>
+                        <option value="physics">الفيزياء</option>
+                        <option value="english" data-subject="اللغة الانكليزية">اللغة الانكليزية</option>
+                        <option value="arabic" data-subject="اللغة العربية">اللغة العربية</option>
+                        <option value="french" data-subject="اللغة الفرنسية">اللغة الفرنسية</option>
+                        <option value="religion" data-subject="التربية الاسلامية">التربية الاسلامية</option>
+                        <option value="math2" data-subject="الرياضيات">الرياضيات</option>
+                        <option value="physics2" data-subject="الفيزياء">الفيزياء</option>
+                        <option value="chemistry2" data-subject="الكيمياء">الكيمياء</option>
+                        <option value="biology2" data-subject="الاحياء">الاحياء</option>
+                    </select>
+                </div>
+                
+                
+                <div class="form-group" style="height: auto;">
+                    <p>النص:</p>
+                    <textarea rows="6" id="form-description-textarea" name="text" placeholder="ادخل الوصف هنا" required></textarea>
+                </div>
+                
+                 
+                <div class="form-group">
+                    <p>الاهمية:</p>
+                    <input name="significance" type="range" min="1" max="5" value="1">
+                </div>
+
+                <div class="form-main-button-group">
+                    <button  type="submit" class="form-main-button">اضافة</button>
+                </div>
+            </div>
+        </form>
+        
+    </main>
+</body>
+<script>
+    function SetStudyType(value){
+        const study_type = document.getElementById("form-study-type-input");
+        const arabic_button = document.getElementById("arabic-option-button");
+        const english_button = document.getElementById("english-option-button");
+        study_type.value = value;
+        if(value){
+            arabic_button.classList.add("selected-button");
+            english_button.classList.remove("selected-button");
+        } else {
+            english_button.classList.add("selected-button");
+            arabic_button.classList.remove("selected-button");
+        }
+    }
+    function SetGrade(value){
+        const grade = document.getElementById("form-grade-input");
+        grade.value = value;
+        const gradeLabel = value ? "سادس علمي" : "ثالث متوسط";
+        document.querySelectorAll("#source-add-form select[name='origin'] option[data-subject]").forEach(option => {
+            option.textContent = `${option.dataset.subject} (${gradeLabel})`;
+        });
+        if(value){
+            document.getElementById("5th-option-button").classList.add("selected-button");
+            document.getElementById("2nd-option-button").classList.remove("selected-button");
+        } else {
+            document.getElementById("2nd-option-button").classList.add("selected-button");
+            document.getElementById("5th-option-button").classList.remove("selected-button");
+        }
+    }
+    SetStudyType(true);
+    SetGrade(true);
+
+
+</script>
+</html>
