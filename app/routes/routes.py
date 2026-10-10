@@ -30,7 +30,8 @@ def grade():
 
 @routes.route("/home")
 def home():
-    return render_template("index.html")
+    grade = request.cookies.get("grade-cookie")
+    return render_template("index.html", grade=grade)
 
 
 @routes.route("/iq")

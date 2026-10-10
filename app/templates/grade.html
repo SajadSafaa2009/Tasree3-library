@@ -65,7 +65,13 @@
             b1.style.backgroundColor = "var(--bg-light)";
         }
     }
+    window.addEventListener('pageshow', (event) => {
+    // This runs on normal loads, reloads, AND back/forward navigation
     set_grade('1');
     set_study_type('1');
+
+    });
+    
+    
 </script>
 </html>
