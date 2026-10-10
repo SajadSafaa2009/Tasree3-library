@@ -46,7 +46,8 @@ def iq():
 
 @routes.route("/subjects")
 def subjects():
-    return render_template("subjects.html")
+    grade = request.cookies.get("grade-cookie")
+    return render_template("subjects.html",grade=grade)
 
 
 @routes.route("/subject")
@@ -95,7 +96,8 @@ def subject():
 
 @routes.route("/postsubjects")
 def postsubjects():
-    return render_template("subjects2.html")
+    grade = request.cookies.get("grade-cookie")
+    return render_template("subjects2.html",grade=grade)
 
 
 @routes.route("/news")

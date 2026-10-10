@@ -85,7 +85,7 @@ main {
 .home-button{
     display: flex;
     flex-grow: 1;
-    backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(15px) !important;
     height: 10vh;
     width: 40%;
     font-size: clamp(8px, 1vw + 2.5vh, 96px);
@@ -405,11 +405,11 @@ main{
 }
 
 .second {
-    animation-delay: 0.7s;
+    animation-delay: 0.5s;
 }
 
 .third {
-    animation-delay: 1.4s;
+    animation-delay: 0.9s;
 }
 
 .icon-img{

@@ -8,38 +8,100 @@
 </head>
 <body>
     <main>
-        <div class="title-div  shorter-title post-title">
+        <button  class="icon-button back-button" onclick="history.back()" >
+            <img src="static/icons/arrow-left.svg" class="icon-img"  alt="">
+        </button>
+        
+        <button  class="icon-button list-button" onclick="ShowSidePanel()" >
+            <img src="static/icons/menu.svg" class="icon-img"  alt="">
+        </button>
+        <img src="static/abstract waves.png"  class="background-image"  alt="">
+        
+        <div class="title-div  shorter-title fade-in first">
             <h1>اختر المادة</h1>
         </div>
         <div class="home-buttons-div ">
-            <button onclick="window.location.href='/subject?origin=math2'" class="home-button">
+            <button onclick="window.location.href='/subject?origin=math2'" class="home-button fade-in second">
                 رياضيات
             </button>
-            <button onclick="window.location.href='/subject?origin=physics2'" class="home-button">
-                فيزياء
+            <button onclick="window.location.href='/subject?origin=physics2'" class="home-button fade-in second">
+                فيزياء 
             </button>
-            <button onclick="window.location.href='/subject?origin=chemistry2'" class="home-button">
+            <button onclick="window.location.href='/subject?origin=chemistry2'" class="home-button fade-in second">
                 كيمياء
             </button>
-            <button onclick="window.location.href='/subject?origin=biology2'" class="home-button">
+            <button onclick="window.location.href='/subject?origin=biology2'" class="home-button fade-in second">
                 احياء
             </button>
-            <button onclick="window.location.href='/subject?origin=religion'" class="home-button">
+            <button onclick="window.location.href='/subject?origin=religion'" class="home-button fade-in second">
                  التربية الاسلامية
             </button>
-            <button onclick="window.location.href='/subject?origin=english'" class="home-button">
+            <button onclick="window.location.href='/subject?origin=english'" class="home-button fade-in second">
                 اللغة الانكليزية 
             </button>
-            <button onclick="window.location.href='/subject?origin=arabic'" class="home-button">
+            <button onclick="window.location.href='/subject?origin=arabic'" class="home-button fade-in second">
                  اللغة العربية
             </button>
-            <button onclick="window.location.href='/subject?origin=french'" class="home-button">
+            <button onclick="window.location.href='/subject?origin=french'" class="home-button fade-in second">
                 اللغة الفرنسية
             </button>
+        </div>
+        <div id="side-panel">
+            <div style="height: 8%;width: 100%;">
+                <button class="icon-button back-button" onclick="HideSidePanel()">
+                    <img src="static/icons/x.svg" class="icon-img"  alt="">
+                </button>
+            </div>
+            <div class="side-panel-buttons-div">
+                <button class="side-panel-button" onclick="window.location.href='/home'">
+                    <img src="static/icons/house.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الصفحة الرئيسية</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/subjects'">
+                    <img src="static/icons/book-text.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">{{ 'الثاني متوسط' if grade == '0' else 'الخامس علمي' }}</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/iq'">
+                    <img src="static/icons/brain.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الذكاء</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/postsubjects'">
+                    <img src="static/icons/book-text.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">{{ 'الثالث متوسط' if grade == '0' else 'السادس علمي' }}</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/news'">
+                    <img src="static/icons/newspaper.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الاخبار</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/contact-students'">
+                    <img src="static/icons/messages-circle.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">التواصل مع الطلبة المسرعين</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/'">
+                    <img src="static/icons/user.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">تغيير نوع الدراسة</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/about'">
+                    <img src="static/icons/info.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">عن مكتبة سرع</p>
+                </button>
+            </div>
+        </div>
+        <div id="blur-screen" class="blur-screen">
+
         </div>
     </main>
 </body>
 <script>
-    
+    const side_panel = document.getElementById("side-panel");
+    const blur_screen = document.getElementById("blur-screen");
+    function ShowSidePanel(){
+        side_panel.classList.add("side-panel-unveiled")
+        blur_screen.classList.add("blur-active")
+    }
+    function HideSidePanel(){     
+        side_panel.classList.remove("side-panel-unveiled")
+        blur_screen.classList.remove("blur-active")
+    }
 </script>
 </html>
