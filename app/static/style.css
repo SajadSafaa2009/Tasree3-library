@@ -4,8 +4,10 @@
     --bg :        hsl(190, 29%, 14%);
     --bg-light :  hsl(185, 27%, 29%);
     --bg-light-transparent : hsla(185, 27%, 29%,0.55);
+    --bg-light-transparent2 : hsla(185, 27%, 29%, 0.82);
     --bg-light2 : hsl(148, 29%, 30%);
     --bg-light2-transparent : hsla(148, 29%, 30%, 0.55);
+    --bg-light2-transparent2 : hsla(148, 29%, 30%, 0.82);
 
     --text :       hsl(0, 0%, 95%);
     --text-muted : hsl(190, 5%, 85%);
@@ -16,12 +18,18 @@
 
     --primary:   hsl(167, 99%, 32%);
     --secondary: hsl(174, 99%, 27%);
-    --accent:    hsl(201, 98%, 40%);
+    --accent:    hsl(209, 100%, 50%);
 
     --danger :     hsl(0, 40%, 60%);
     --warning :    hsl(55, 40%, 60%);
     --success :    hsl(110, 40%, 60%);
     --info :       hsl(210, 40%, 60%);
+
+    --icon-bg :    hsl(110, 40%, 60%);
+    --icon : hsl(110, 40%, 25%);
+    
+    --icon-bg2 :    hsl(0, 40%, 60%);
+    --icon2 : hsl(0, 40%, 25%);
 }
 * {
     box-sizing: border-box;
@@ -248,68 +256,95 @@ main {
 }
 .source-div{
     display: flex;
-    height: 12vh;
+    flex: 0 0 auto;
+    min-height: 12vh;
+    height: auto;
     width: 95%;
     margin-bottom: 1vh;
     border-radius: 30px;
-    align-items: center;
+    align-items: start;
     justify-content: start;
     padding: 10px;
     font-size: 2rem;
     color: var(--text);
     border: 1px solid var(--border);
     direction: rtl;
-    gap : 15px;
-    background: linear-gradient(to right, var(--bg-light) , var(--bg-light2));;
+    gap: 10px;
+    background: linear-gradient(80deg, var(--bg-light-transparent2) , var(--bg-light2-transparent2));
+    backdrop-filter: blur(15px) !important;
+    box-shadow: 0px 5px 4px 5px rgba(3, 3, 3, 0.149);
 }
 .source-img-div{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px !important;
+    width: 18vw !important;
     height: 100%;
+    max-width: 300px;
+    padding: 15px;
 }
 .source-img-capsule{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px !important;
-    height: 70%;
+    aspect-ratio: 1/1;
+    width: 14vw !important;
+    max-width: 200px;
     border-radius: 30px;
-    background-color: var(--success);
+    background-color: var(--icon-bg);
 }
+.icon-book {
+    height: 60%;
+    aspect-ratio: 1/1;
+    color: var(--icon);
+}
+.icon-video {
+    height: 60%;
+    aspect-ratio: 1/1;
+    color: var(--icon2);
+}
+
 .source-info-div{
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    width: 75% ;
-    height: 100%;
-    overflow: hidden;
-    gap: 5px;
+    width: 75%;
+    height: auto;
+    min-width: 0;
+    gap: 20px;
+    padding: 10px;
 }
+
 .source-info-div h1{
     font-size: clamp(8px, 1vw + 1.5vh, 48px);
     margin: 0;
     margin-top: 15px;
     padding: 0;
-    height: 30%;
+    height: auto;
+    width: 100%;
+    overflow-wrap: anywhere;
 }
+
 .source-info-div p{
-    font-size: clamp(8px, 1vw + 1.5vh, 32px);
+    font-size: clamp(12px, 1.5vw + 1.5vh, 40px);
     margin: 0;
     padding: 0;
-    height: 70%;
+    height: auto;
+    width: 100%;
+    overflow-wrap: anywhere;
 }
-.source-info-div h1 , .source-info-div p{
+
+.source-info-div h1,
+.source-info-div p{
     text-align: right;
-    overflow: hidden;
 }
 .selected-info-type{
-    background: linear-gradient(to top, var(--bg-light) , var(--bg-light2)) !important;
+    background: linear-gradient(45deg, var(--primary) , var(--secondary)) !important;
+    
 }
 /*######################*/
-.tip-div{
+.tip-div {
     display: flex;
     flex: 0 0 auto;
     width: 95%;
@@ -317,47 +352,76 @@ main {
     height: auto;
     margin-bottom: 1vh;
     border-radius: 30px;
-    align-items: center;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
-    padding: 14px;
+    padding: 20px;
     color: var(--text);
     border: 1px solid var(--border);
     direction: rtl;
-    gap: 10px;
-    background: linear-gradient(to right, var(--bg-light), var(--bg-light2));
+    gap: 15px;
+    background: linear-gradient(
+        80deg,
+        var(--bg-light-transparent2),
+        var(--bg-light2-transparent2)
+    );
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 5px 4px 5px rgba(3, 3, 3, 0.149);
     box-sizing: border-box;
 }
-.tip-title-div{
+
+.tip-title-div {
     display: flex;
     justify-content: space-between;
-    align-items: start;
-    width: 90%;
+    align-items: flex-start;
+    width: 100%;
     height: auto;
     min-height: 3vh;
-    gap: 5px;
-    margin-top: 15px;
+    gap: 15px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.tip-title-div h2{
+.tip-title-div h2 {
     font-size: clamp(8px, 1vw + 1.5vh, 32px);
     margin: 0;
     padding: 0;
-    height: 70%;
-    text-align: right;
+    height: auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
     box-sizing: border-box;
 }
 
-.tip-text-div{
+.tip-title-div h2:first-child {
+    flex: 1;
+}
+
+.tip-title-div h2:last-child {
+    flex: 0 1 auto;
+    text-align: left;
+}
+
+.tip-text-div {
     display: flex;
-    justify-content: center;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     height: auto;
     flex: 0 0 auto;
+    min-width: 0;
     box-sizing: border-box;
-    font-size: 2.5rem;
+    font-size: clamp(12px, 1.5vw + 1.5vh, 40px);
+}
+
+.tip-text-div p {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    text-align: right;
 }
 .lower-shadow{
     position: absolute;
@@ -513,4 +577,37 @@ main{
 .side-panel-button-p{
     font-size: clamp(8px, 1.5vw + 1.5vh, 48px);
     
+}
+
+
+.content-encapsule-div {
+    display: none;
+    opacity: 0;
+}
+
+.content-encapsule-div.tab-enter {
+    animation: contentSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes contentSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.985);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .content-encapsule-div.tab-enter {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
 }

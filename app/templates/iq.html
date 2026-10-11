@@ -8,6 +8,16 @@
 </head>
 <body>
     <main>
+        <button  class="icon-button back-button" onclick="history.back()" >
+            <img src="static/icons/arrow-left.svg" class="icon-img"  alt="">
+        </button>
+        
+        <button  class="icon-button list-button" onclick="ShowSidePanel()" >
+            <img src="static/icons/menu.svg" class="icon-img"  alt="">
+        </button>
+
+        <img src="static/abstract waves.png" class="background-image"  alt="">
+
         <div class="upper-div">
             <div class="upper-div-title">
                 <h1 >الذكاء</h1>
@@ -25,7 +35,8 @@
                     <div class="source-div" onclick="window.location.href='{{source.link}}'">
                         <div class="source-img-div">
                             <div class="source-img-capsule">
-                                <img src="static/book-icon-img.png" alt="" style="height: 60%;aspect-ratio: 1;filter: brightness(0.7) sepia(1) hue-rotate(110deg) saturate(600%); ">
+                                <svg class="icon-book" xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-text preview-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="M8 11h8"/><path d="M8 7h6"/></svg>
+                                
                             </div>
                         </div>
                         <div class="source-info-div">
@@ -52,8 +63,8 @@
                 {% for video in videos %}
                     <div class="source-div" onclick="window.location.href='{{video.link}}'">
                         <div class="source-img-div">
-                            <div class="source-img-capsule">
-                                <img src="static/book-icon-img.png" alt="" style="height: 60%;aspect-ratio: 1;filter: brightness(0.7) sepia(1) hue-rotate(110deg) saturate(600%); ">
+                            <div class="source-img-capsule" style="background-color: var(--icon-bg2) !important;">
+                                <svg class="icon-video" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tv-minimal-play preview-icon"><path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z"/><path d="M7 21h10"/><rect width="20" height="14" x="2" y="3" rx="2"/></svg>
                             </div>
                         </div>
                         <div class="source-info-div">
@@ -65,30 +76,82 @@
             </div>
             <div class="lower-shadow"></div>
         </div>
+        <div id="side-panel">
+            <div style="height: 8%;width: 100%;">
+                <button class="icon-button back-button" onclick="HideSidePanel()">
+                    <img src="static/icons/x.svg" class="icon-img"  alt="">
+                </button>
+            </div>
+            <div class="side-panel-buttons-div">
+                <button class="side-panel-button" onclick="window.location.href='/home'">
+                    <img src="static/icons/house.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الصفحة الرئيسية</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/subjects'">
+                    <img src="static/icons/book-text.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">{{ 'الثاني متوسط' if grade == '0' else 'الخامس علمي' }}</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/iq'">
+                    <img src="static/icons/brain.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الذكاء</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/postsubjects'">
+                    <img src="static/icons/book-text.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">{{ 'الثالث متوسط' if grade == '0' else 'السادس علمي' }}</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/news'">
+                    <img src="static/icons/newspaper.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الاخبار</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/contact-students'">
+                    <img src="static/icons/messages-circle.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">التواصل مع الطلبة المسرعين</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/'">
+                    <img src="static/icons/user.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">تغيير نوع الدراسة</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/about'">
+                    <img src="static/icons/info.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">عن مكتبة سرع</p>
+                </button>
+            </div>
+        </div>
+        <div id="blur-screen" class="blur-screen">
+
+        </div>
     </main>
 </body>
 <script>
-    let info_type = "tips";
+    let info_type = "sources";
+    const side_panel = document.getElementById("side-panel");
+    const blur_screen = document.getElementById("blur-screen");
+    function ShowSidePanel(){
+        side_panel.classList.add("side-panel-unveiled")
+        blur_screen.classList.add("blur-active")
+    }
+    function HideSidePanel(){     
+        side_panel.classList.remove("side-panel-unveiled")
+        blur_screen.classList.remove("blur-active")
+    }
 
-    function RenderContent(){
-        const sources_div = document.getElementById("sources-div");
-        const tips_div = document.getElementById("tips-div");
-        const videos_div = document.getElementById("videos-div");
-        if(info_type == "sources"){
-            sources_div.style.display = "flex";
-            tips_div.style.display = "none";
-            videos_div.style.display = "none";
-        }
-        else if(info_type == "tips"){
-            sources_div.style.display = "none";
-            tips_div.style.display = "flex";
-            videos_div.style.display = "none";
-        }
-        else if(info_type == "videos"){
-            sources_div.style.display = "none";
-            tips_div.style.display = "none";
-            videos_div.style.display = "flex";
-        }
+    function RenderContent() {
+        const tabs = [
+            document.getElementById("sources-div"),
+            document.getElementById("tips-div"),
+            document.getElementById("videos-div")
+        ];
+
+        tabs.forEach(tab => {
+            tab.classList.remove("tab-enter");
+            tab.style.display = "none";
+        });
+
+        const activeTab = document.getElementById(`${info_type}-div`);
+
+        activeTab.style.display = "flex";
+        void activeTab.offsetWidth;
+        activeTab.classList.add("tab-enter");
     }
 
     function SetInfoType(type){
@@ -115,6 +178,6 @@
         RenderContent();
     }
     
-    SetInfoType("tips");
+    SetInfoType("sources");
 </script>
 </html>
