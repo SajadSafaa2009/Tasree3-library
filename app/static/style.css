@@ -271,8 +271,24 @@ main {
     direction: rtl;
     gap: 10px;
     background: linear-gradient(80deg, var(--bg-light-transparent2) , var(--bg-light2-transparent2));
-    
+    overflow: hidden;
     box-shadow: 0px 5px 4px 5px rgba(3, 3, 3, 0.149);
+}
+.source-div.show-after::after {
+    content: "مهم";
+    position: relative;
+    top: -10px;
+    left: 2%;
+    background-color: var(--danger);
+    color: var(--icon2);
+    width: 16%;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    font-size: 2.5rem;
+    transform: translate(0, 0);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .source-img-div{
     display: flex;
@@ -314,6 +330,7 @@ main {
     min-width: 0;
     gap: 20px;
     padding: 10px;
+    
 }
 
 .source-info-div h1{
