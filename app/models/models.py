@@ -30,3 +30,12 @@ class Tip(db.Model):
     significance = db.Column(db.Integer, nullable=False, default=1)
     title = db.Column(db.Text, nullable=False)
 
+class Article(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    
+    title = db.Column(db.Text, nullable=False)
+    text = db.Column(db.Text, nullable=False)
+    date = db.Column(db.Date, nullable=False)
+    
+    important  = db.Column(db.Boolean, nullable=False, default=False)
+

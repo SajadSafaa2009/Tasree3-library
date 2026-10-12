@@ -7,7 +7,7 @@ from flask import (
     request,
     make_response,
 )
-from app.services.services import add_tip, get_sources, get_tips, get_videos
+from app.services.services import add_tip, get_sources, get_tips, get_videos ,get_articles
 
 routes = Blueprint("routes", __name__)
 
@@ -102,7 +102,8 @@ def postsubjects():
 
 @routes.route("/news")
 def news():
-    return render_template("news.html")
+    articles = get_articles()
+    return render_template("news.html",articles=articles)
 
 
 @routes.route("/add")
@@ -120,6 +121,10 @@ def add_advice():
 @routes.route("/add_video")
 def add_video():
     return render_template("add video.html")
+
+@routes.route("/add_article")
+def add_article():
+    return render_template("add article.html")
 
 
 @routes.route("/source/create", methods=["POST"])
@@ -170,6 +175,19 @@ def create_tip():
     from app.services.services import add_video
 
     add_tip(study_type, grade, origin, title, author, significance, text)
+
+    return redirect(url_for("routes.add"))
+
+@routes.route("/article/create", methods=["POST"])
+def create_article():
+    text = request.form.get("text")
+    title = request.form.get("title")
+    date = request.form.get("date")
+    important = request.form.get("important") == "on"
+    
+    from app.services.services import add_article
+
+    add_article(title,text,date,important)
 
     return redirect(url_for("routes.add"))
 

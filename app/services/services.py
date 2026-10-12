@@ -1,14 +1,23 @@
 from app import db
-from app.models.models import Tip , Source
+from app.models.models import Tip , Source , Article
 
-def get_sources(origin , grade , study_type):
-    return Source.query.filter(Source.origin == origin,Source.video == False,Source.grade == grade,Source.study_type == study_type).all()
-
+def get_sources(origin, grade, study_type):
+    return Source.query.filter(
+        Source.origin == origin,
+        Source.video == False,
+        Source.grade == grade,
+        Source.study_type == study_type
+    ).order_by(Source.significance.desc()).all()
+    
 def get_videos(origin , grade , study_type):
-    return Source.query.filter(Source.origin == origin,Source.video == True,Source.grade == grade,Source.study_type == study_type).all()
+    return Source.query.filter(Source.origin == origin,Source.video == True,Source.grade == grade,Source.study_type == study_type).order_by(Source.significance.desc()).all()
 
 def get_tips(origin , grade , study_type):
+    
     return Tip.query.filter(Tip.origin == origin, Tip.grade == grade, Tip.study_type == study_type).all()
+
+def get_articles():
+    return Article.query.order_by(Article.date.desc()).all()
 
 def add_source(study_type, grade, origin, text, author, link, significance, description):
     new_source = Source(
@@ -52,4 +61,14 @@ def add_tip(study_type, grade, origin, title, author, significance, text):
 
     )
     db.session.add(new_tip)
+    db.session.commit()
+
+def add_article(title,text,date,important):
+    new_article = Article(
+        title=title,
+        text=text,
+        date=date,
+        important=important
+    )
+    db.session.add(new_article)
     db.session.commit()

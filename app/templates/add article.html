@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <main>
+        <form id="source-add-form" action="{{ url_for('routes.create_article') }}" method="POST">
+            <div class="form-card general-div">
+                <div class="form-title">
+                    <h1 style="font-size: 3rem;">اضافة خبر</h1>
+                </div>
+                
+                <div class="form-group">
+                    <p>العنوان:</p>
+                    <input type="text" name="title" placeholder="ادخل العنوان هنا" required>
+                </div>
+
+                <div class="form-group" style="height: auto;">
+                    <p>النص:</p>
+                    <textarea rows="6" id="form-description-textarea" name="text" placeholder="ادخل الوصف هنا" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <p>التاريخ:</p>
+                    <input type="date" name="date" placeholder="ادخل العنوان هنا" required>
+                </div>
+                 
+                <div class="form-group">
+                    <p>مهم:</p>
+                    <input type="checkbox" name="important">
+                </div>
+
+                <div class="form-main-button-group">
+                    <button  type="submit" class="form-main-button">اضافة</button>
+                </div>
+            </div>
+        </form>
+        
+    </main>
+</body>
+<script>
+    
+
+</script>
+</html>
