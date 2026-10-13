@@ -693,7 +693,91 @@ input[type="checkbox"] {
     padding: 12px !important;
     width: 100%;
     color: var(--text);
+    text-align: justify;
+    text-align-last: right;
 }
-.important{
+.about-card{
+    display: flex;
+    flex: 0 0 auto;
+    min-height: 12vh;
+    height: 50vh;
+    width: 95%;
+    margin-bottom: 1vh;
+    border-radius: 30px;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    padding: 20px;
+    color: var(--text);
+    border: 1px solid var(--border);
+    direction: rtl;
+    gap: 0px;
+    background: linear-gradient(80deg, hsla(185, 27%, 29%, 0.9),hsla(148, 29%, 30%, 0.9));
+    overflow: hidden;
+    box-shadow: 0px 5px 4px 5px rgba(3, 3, 3, 0.149);
+    margin: auto;
+}
+.about-card p{
+    font-size: 3.8rem;
+    text-align: justify;
+    text-align-last: right;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top: 10px;
+}
+.gradient-text{
+    background: linear-gradient(
+        90deg,
+        hsl(181, 88%, 49%),
+        hsl(164, 86%, 51%)
+    );
     
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.buttons-card{
+    display: flex;
+    flex: 0 0 auto;
+    min-height: 12vh;
+    height: 26vh !important;
+    margin-top: 2vh !important;
+    width: 95%;
+    margin-bottom: 2vh;
+    border-radius: 30px;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    padding: 0;
+    color: var(--text);
+    border: none;
+    direction: rtl;
+    gap: 5%;
+    background: none;
+    overflow: hidden;
+    margin: auto;
+}
+.about-button{
+    width: 95%;
+    height: 45%;
+    margin: auto;
+    background: linear-gradient(
+        130deg,
+        hsl(197, 67%, 48%),
+        hsl(159, 87%, 38%)
+    );
+    display: flex;
+    justify-content: start !important;
+    align-items: center !important;
+    gap: 0px;
+}
+.about-button h5{
+    text-align: start;
+    direction: rtl;
+    font-size: 4.3rem;
+}
+.about-img{
+    width: 15% !important;
+    margin-right: 2% !important;
+    margin-left: 3% !important;
 }

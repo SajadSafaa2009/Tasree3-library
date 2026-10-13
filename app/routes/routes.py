@@ -106,6 +106,10 @@ def news():
     return render_template("news.html",articles=articles)
 
 
+@routes.route("/about")
+def about():
+    return render_template("about.html")
+
 @routes.route("/add")
 def add():
     return render_template("add.html")

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <main style="overflow-y: auto;">
+        <button  class="icon-button back-button" onclick="history.back()" >
+            <img src="static/icons/arrow-left.svg" class="icon-img"  alt="">
+        </button>
+        
+        <button  class="icon-button list-button" onclick="ShowSidePanel()" >
+            <img src="static/icons/menu.svg" class="icon-img"  alt="">
+        </button>
+
+        <img src="static/abstract waves.png" class="background-image"  alt="">
+        <div class="title-div  shorter-title fade-in first" style="height: 20vh !important;">
+            <h1>عن مكتبة تسريع</h1>
+            
+        </div>
+        <div class="about-card fade-in second">
+            <p><strong>مكتبة تسريع</strong> هي منصة تعليمية تهدف إلى توفير بيئة دراسية متكاملة لطلبة التسريع في العراق، من خلال جمع وتنظيم الكتب والمصادر التعليمية التي يحتاجها الطلبة خلال رحلتهم الدراسية، سواء في <strong>التسريع إلى الصف الثاني المتوسط أو الصف الخامس الإعدادي</strong>.</p>
+
+            <p>تسعى المكتبة إلى تسهيل الوصول إلى المصادر الدراسية وتوفير الوقت والجهد على الطلبة، من خلال جمع الكتب والملازم والمصادر المفيدة في مكان واحد، بما يساعدهم على تنظيم دراستهم والاستعداد للاختبارات بكفاءة أكبر.</p>
+
+            <p>تم تطوير هذا التطبيق والموقع الإلكتروني وبرمجتهما من قبل <strong class="gradient-text">المُسرّع سجاد صفاء سعدون</strong>، انطلاقًا من الإيمان بأهمية توظيف التكنولوجيا في خدمة الطلبة وتوفير أدوات تعليمية تسهّل عليهم الوصول إلى المعرفة.</p>
+
+            <p>أما عملية تجميع الكتب والمصادر وتنظيمها، فقد استندت إلى جهود <strong  class="gradient-text">قناة تسريع</strong>، لتكون المكتبة مرجعًا تعليميًا يجمع ما يحتاجه طلبة التسريع في مكان واحد.</p>
+
+            <p><strong>مكتبة تسريع — مصادرُك الدراسية، في مكان واحد.</strong></p>
+        </div>
+        <div class="buttons-card">
+            <button class="home-button about-button fade-in third" onclick="window.open('https://t.me/the_g2ek', '_blank')">
+                <img src="static/icons/user.svg" class="side-panel-button-img about-img"  alt="">
+                <h5>التواصل مع مطور التطبيق سجاد صفاء </h5>
+            </button>
+            <button class="home-button about-button fade-in third" onclick="window.open('https://www.facebook.com/profile.php?id=61594983051785')">
+                <img src="static/icons/chart-no-axes-combined.svg" class="side-panel-button-img about-img"  alt="">
+                <h5>التواصل مع مكتبة insight للبحوث العلمية  </h5>
+            </button>
+        </div>
+        <div id="side-panel">
+            <div style="height: 8%;width: 100%;">
+                <button class="icon-button back-button" onclick="HideSidePanel()">
+                    <img src="static/icons/x.svg" class="icon-img"  alt="">
+                </button>
+            </div>
+            <div class="side-panel-buttons-div">
+                <button class="side-panel-button" onclick="window.location.href='/home'">
+                    <img src="static/icons/house.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الصفحة الرئيسية</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/subjects'">
+                    <img src="static/icons/book-text.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">{{ 'الثاني متوسط' if grade == '0' else 'الخامس علمي' }}</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/iq'">
+                    <img src="static/icons/brain.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الذكاء</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/postsubjects'">
+                    <img src="static/icons/book-text.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">{{ 'الثالث متوسط' if grade == '0' else 'السادس علمي' }}</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/news'">
+                    <img src="static/icons/newspaper.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">الاخبار</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/contact-students'">
+                    <img src="static/icons/messages-circle.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">التواصل مع الطلبة المسرعين</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/'">
+                    <img src="static/icons/user.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">تغيير نوع الدراسة</p>
+                </button>
+                <button class="side-panel-button" onclick="window.location.href='/about'">
+                    <img src="static/icons/info.svg" class="side-panel-button-img"  alt="">
+                    <p class="side-panel-button-p">عن مكتبة سرع</p>
+                </button>
+            </div>
+        </div>
+        <div id="blur-screen" class="blur-screen">
+
+        </div>
+    </main>
+</body>
+<script>
+    const side_panel = document.getElementById("side-panel");
+    const blur_screen = document.getElementById("blur-screen");
+    function ShowSidePanel(){
+        side_panel.classList.add("side-panel-unveiled")
+        blur_screen.classList.add("blur-active")
+    }
+    function HideSidePanel(){     
+        side_panel.classList.remove("side-panel-unveiled")
+        blur_screen.classList.remove("blur-active")
+    }
+</script>
+</html>
