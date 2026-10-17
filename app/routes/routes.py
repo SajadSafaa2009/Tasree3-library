@@ -36,8 +36,8 @@ def home():
 
 @routes.route("/iq")
 def iq():
-    grade = request.cookies.get("grade-cookie")
-    study_type = request.cookies.get("study-type-cookie")
+    grade = request.cookies.get("grade-cookie") == "true"
+    study_type = request.cookies.get("study-type-cookie") == "true"
     sources = get_sources(origin="iq", grade=grade, study_type=study_type)
     tips = get_tips(origin="iq", grade=grade, study_type=study_type)
     videos = get_videos(origin="iq", grade=grade, study_type=study_type)
@@ -53,8 +53,8 @@ def subjects():
 @routes.route("/subject")
 def subject():
     origin = request.args.get("origin")
-    grade = request.cookies.get("grade-cookie")
-    study_type = request.cookies.get("study-type-cookie")
+    grade = request.cookies.get("grade-cookie") == "true"
+    study_type = request.cookies.get("study-type-cookie") == "true"
     sources = get_sources(origin=origin, grade=grade, study_type=study_type)
     tips = get_tips(origin=origin, grade=grade, study_type=study_type)
     videos = get_videos(origin=origin, grade=grade, study_type=study_type)
