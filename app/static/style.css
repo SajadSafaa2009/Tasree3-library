@@ -62,7 +62,17 @@ main {
     justify-content: center;
     align-items: start;
     padding-top: 10%;
-    font-size: clamp(8px, 1vw + 1.5vh, 48px);
+    font-size: clamp(8px,6vw,100px);
+    border: none;
+}
+.subject-title-div{
+    display: flex;
+    width: 100%;
+    height: 60%;
+    color: white;
+    justify-content: center;
+    align-items: start;
+    font-size: clamp(8px,6vw,100px);
     border: none;
 }
 .shorter-title{
@@ -233,7 +243,7 @@ main {
     
     border: none;
     background: var(--bg-light);
-    font-size: 3rem;
+    font-size: clamp(8px,6vw,100px);
     color: var(--text);
     justify-content: center;
     align-items: center;
@@ -285,7 +295,7 @@ main {
     overflow: hidden;
     align-items: center;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(8px,6vw,100px);
     transform: translate(0, 0);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -334,7 +344,7 @@ main {
 }
 
 .source-info-div h1{
-    font-size: clamp(8px, 1vw + 1.5vh, 48px);
+    font-size: clamp(8px,6vw,100px);
     margin: 0;
     margin-top: 15px;
     padding: 0;
@@ -344,7 +354,7 @@ main {
 }
 
 .source-info-div p{
-    font-size: clamp(12px, 1.5vw + 1.5vh, 40px);
+    font-size: clamp(8px,5.5vw,100px);
     margin: 0;
     padding: 0;
     height: auto;
@@ -397,10 +407,11 @@ main {
     gap: 15px;
     margin: 0;
     box-sizing: border-box;
+    margin-bottom: 1vw;
 }
 
 .tip-title-div h2 {
-    font-size: clamp(8px, 1vw + 1.5vh, 32px);
+    font-size: clamp(8px,6vw,100px) !important;
     margin: 0;
     padding: 0;
     height: auto;
@@ -428,7 +439,7 @@ main {
     flex: 0 0 auto;
     min-width: 0;
     box-sizing: border-box;
-    font-size: clamp(12px, 1.5vw + 1.5vh, 40px);
+    font-size: clamp(8px,5.5vw,100px);
 }
 
 .tip-text-div p {
@@ -592,8 +603,8 @@ main{
     filter: brightness(0) invert(1);
 }
 .side-panel-button-p{
-    font-size: clamp(8px, 1.5vw + 1.5vh, 48px);
-    
+    font-size: clamp(8px, 6vw, 100px);
+    text-align: right;
 }
 
 
@@ -675,7 +686,7 @@ input[type="checkbox"] {
     box-shadow: 0px 5px 4px 5px rgba(3, 3, 3, 0.149);
 }
 .article-div h1{
-    font-size: 4rem;
+    font-size: clamp(32px, 6vw, 120px);
     margin-top: 12px;
     margin-right: 12px;
     margin-bottom: 0px;
@@ -683,13 +694,13 @@ input[type="checkbox"] {
     color: var(--text);
 }
 .article-div h2{
-    font-size: 3rem;
+    font-size: clamp(16px, 4vw, 64px);
     margin-top: 4px;
     margin-right: 12px;
     color: var(--text-muted);
 }
 .article-div p{
-    font-size: 3rem;
+    font-size: clamp(24px, 5vw, 90px);
     padding: 12px !important;
     width: 100%;
     color: var(--text);
@@ -718,12 +729,12 @@ input[type="checkbox"] {
     margin: auto;
 }
 .about-card p{
-    font-size: 3.8rem;
+    font-size: clamp(5px, 4.1vw, 90px);
     text-align: justify;
     text-align-last: right;
-    margin-left:20px;
-    margin-right:20px;
-    margin-top: 10px;
+    margin-left:3%;
+    margin-right:3%;
+    margin-top: 1.5%;
 }
 .gradient-text{
     background: linear-gradient(
@@ -774,7 +785,7 @@ input[type="checkbox"] {
 .about-button h5{
     text-align: start;
     direction: rtl;
-    font-size: 4.3rem;
+    font-size: clamp(6px, 4.5vw, 128px);
 }
 .about-img{
     width: 15% !important;
